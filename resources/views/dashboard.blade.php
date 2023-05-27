@@ -6,10 +6,8 @@
     </x-slot>
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <x-welcome />
-            </div>
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 py-12">
+            <livewire:show-posts text="Lorem ipsum dolor sit ammet"/>
         </div>
     </div>
 </x-app-layout>
