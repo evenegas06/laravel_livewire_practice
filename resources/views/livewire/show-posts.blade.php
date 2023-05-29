@@ -1,6 +1,11 @@
 <div>
     <div class="px-6 py-4">
-        <input type="text" wire:model="search" placeholder="Buscar..." />
+        <input
+            type="text"
+            class="w-full rounded-md"
+            placeholder="Buscar..." 
+            wire:model="search" 
+        />
     </div>
 
     @if ($posts->count())
@@ -8,18 +13,24 @@
             <thead class="bg-gray-50">
                 <tr>
                     <th scope="col"
-                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        ID
+                        class="cursor-pointer px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                        wire:click="order('id')"
+                    >
+                        ID <i class="fas fa-sort mt-1" style="float: right;"></i>
                     </th>
 
                     <th scope="col"
-                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Title
+                        class="cursor-pointer px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                        wire:click="order('title')"
+                    >
+                        Title <i class="fas fa-sort mt-1" style="float: right;"></i>
                     </th>
 
                     <th scope="col"
-                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Content
+                        class="cursor-pointer px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                        wire:click="order('content')"
+                    >
+                        Content <i class="fas fa-sort mt-1" style="float: right;"></i>
                     </th>
 
                     <th scope="col" class="relative px-6 py-3">
