@@ -5,3 +5,12 @@
 [x-cloak] {
     display: none;
 }
+
+.modal {
+    position: absolute;
+    background-color: rgb(0 0 0 / 0.92);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}

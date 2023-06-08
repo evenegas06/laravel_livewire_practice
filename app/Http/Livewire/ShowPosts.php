@@ -11,7 +11,7 @@ class ShowPosts extends Component {
     public $search;
 
     public $sort = 'id';
-    public $direction = 'asc';
+    public $direction = 'desc';
 
     public function render() {
         $posts = Post::where('title', 'like', '%' . $this->search . '%')
