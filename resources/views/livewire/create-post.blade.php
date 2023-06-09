@@ -56,6 +56,8 @@
                         >
                         Cerrar / Cancelar
                         </button>
+
+                        <span wire:loading wire:target="save">Cargando...</span>
                     </div>
                 </div>
             </div>
