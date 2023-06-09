@@ -20,15 +20,28 @@
                             type="text"
                             class="w-full rounded-md"
                             placeholder="Título del post"
-                            wire:model.defer="title"
+                            wire:model="title"
                         />
+                        
+                        @error('title')
+                            <span class="text-red-600 text-sm">
+                                {{ $message }}
+                            </span>
+                        @enderror
+
                         <textarea 
                             name="content"
                             id="content" 
                             class="w-full rounded-md"
                             rows="6"
                             placeholder="Contenido del post"
-                            wire:model.defer="content"></textarea>
+                            wire:model="content"></textarea>
+                        
+                        @error('content')
+                            <span class="text-red-600 text-sm">
+                                {{ $message }}
+                            </span>
+                        @enderror
 
                         <button 
                             class="p-3 bg-black rounded-full text-white w-full font-semibold"
