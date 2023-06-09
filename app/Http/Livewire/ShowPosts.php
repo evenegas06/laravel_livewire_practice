@@ -13,6 +13,11 @@ class ShowPosts extends Component {
     public $sort = 'id';
     public $direction = 'desc';
 
+    protected $listeners = ['render'];
+
+    /**
+     * Render component.
+     */
     public function render() {
         $posts = Post::where('title', 'like', '%' . $this->search . '%')
             ->orWhere('content', 'like', '%' . $this->search . '%')
@@ -25,7 +30,9 @@ class ShowPosts extends Component {
     }
 
     /**
+     * Order field ascendent or descendent.
      * 
+     * @param string $field
      */
     public function order($field) {
         if ($this->sort == $field) {

@@ -20,7 +20,7 @@
                             type="text"
                             class="w-full rounded-md"
                             placeholder="Título del post"
-                            wire:model="title"
+                            wire:model.defer="title"
                         />
                         <textarea 
                             name="content"
@@ -28,7 +28,7 @@
                             class="w-full rounded-md"
                             rows="6"
                             placeholder="Contenido del post"
-                            wire:model="content"></textarea>
+                            wire:model.defer="content"></textarea>
 
                         <button 
                             class="p-3 bg-black rounded-full text-white w-full font-semibold"

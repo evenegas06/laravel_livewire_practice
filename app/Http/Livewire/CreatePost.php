@@ -12,20 +12,23 @@ class CreatePost extends Component {
     public $content;
 
     /**
-     * 
+     * Render component.
      */
     public function render() {
         return view('livewire.create-post');
     }
     
     /**
-     * 
+     * Create a new Post and save in database.
      */
     public function save() {
         Post::create([
             'title' => $this->title,
             'content' => $this->content
         ]);
-        $this->open = !$this->open;
+
+        $this->reset(['open', 'title', 'content']);
+        $this->emit('render');
+        $this->emit('alert', 'Post creado con éxito');
     }
 }
