@@ -14,6 +14,7 @@
                     <div class="mb-8">
                         <h1 class="mb-4 text-3xl font-extrabold">Crear un nuevo post</h1>
                     </div>
+
                     <div class="space-y-4">
                         <input
                             name="title"
@@ -43,9 +44,37 @@
                             </span>
                         @enderror
 
+                        <div>
+                            <input
+                                id="upload_{{ $now }}"
+                                type="file" 
+                                wire:model='image' 
+                            />
+                            
+                            @error('image')
+                                <span class="text-red-600 text-sm">
+                                    {{ $message }}
+                                </span>
+                            @enderror
+                        </div>
+
+                        <div class="w-full mb-2 select-none rounded-l-lg border-l-4 border-yellow-400 bg-yellow-100 text-yellow-600 p-4 font-medium hover:border-yellow-500"
+                            wire:loading
+                            wire:target='image'
+                        >
+                            <span class="font-bold">¡Cargando imagen!</span>
+                            Por favor espere...
+                        </div>
+
+                        @if ($image)
+                            <img src="{{ $image->temporaryUrl() }}" alt="image">
+                        @endif
+
                         <button 
-                            class="p-3 bg-black rounded-full text-white w-full font-semibold"
+                            class="disabled:opacity-25 p-3 bg-black rounded-full text-white w-full font-semibold"
                             wire:click='save'
+                            wire:loading.attr='disabled' 
+                            wire:target='save, image'
                         >
                         Guardar Post
                         </button>

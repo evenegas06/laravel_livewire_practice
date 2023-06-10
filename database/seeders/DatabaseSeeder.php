@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Storage;
 
 class DatabaseSeeder extends Seeder {
     /**
@@ -17,6 +18,6 @@ class DatabaseSeeder extends Seeder {
         //     'email' => 'test@example.com',
         // ]);
 
-        \App\Models\Post::factory(100)->create();
+        \App\Models\Post::factory(15)->create();
     }
 }
