@@ -25,18 +25,21 @@
                         class="cursor-pointer px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                         wire:click="order('title')"
                     >
-                        Title <i class="fas fa-sort mt-1" style="float: right;"></i>
+                        Titulo <i class="fas fa-sort mt-1" style="float: right;"></i>
                     </th>
 
                     <th scope="col"
                         class="cursor-pointer px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                         wire:click="order('content')"
                     >
-                        Content <i class="fas fa-sort mt-1" style="float: right;"></i>
+                        Contenido <i class="fas fa-sort mt-1" style="float: right;"></i>
                     </th>
 
-                    <th scope="col" class="relative px-6 py-3">
-                        <span class="sr-only">Edit</span>
+                    <th 
+                        scope="col"
+                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                        Acciones
                     </th>
                 </tr>
             </thead>
