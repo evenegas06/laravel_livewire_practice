@@ -47,7 +47,7 @@
         <script>
             Livewire.on('alert', function (message) {
                 Swal.fire(
-                    'Good job!',
+                    'Registro guardado.',
                     message,
                     'success'
                 )

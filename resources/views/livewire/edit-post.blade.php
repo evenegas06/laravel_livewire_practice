@@ -1,12 +1,4 @@
 <div>
-    <button 
-        class="font-bold text-white py-2 px-4 rounded cursor-pointer bg-green-600 hover:bg-green-500"
-        wire:click="$set('open', true)"
-    >
-
-        <i class="fas fa-edit"></i>
-    </button>
-
     <div class="fixed left-0 top-0 flex h-full w-full items-center justify-center bg-black bg-opacity-50 py-10 {{ $open ? '' : 'hidden' }}">
         <div class="max-h-full w-full max-w-xl overflow-y-auto sm:rounded-2xl bg-white">
             <div class="w-full">
