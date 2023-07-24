@@ -16,6 +16,9 @@ class EditPost extends Component {
     public $image;
     public $now;
 
+    /**
+     * Validation rules.
+     */
     protected $rules = [
         'post.title' => 'required',
         'post.content' => 'required',

@@ -22,6 +22,7 @@ class ShowPosts extends Component {
     public $sort        = 'id';
     public $direction   = 'desc';
     public $amount      = 10;
+    public $is_ready    = false;
 
     /**
      * Events to listen.
@@ -74,10 +75,14 @@ class ShowPosts extends Component {
      * Render component.
      */
     public function render() {
-        $posts = Post::where('title', 'like', '%' . $this->search . '%')
-            ->orWhere('content', 'like', '%' . $this->search . '%')
-            ->orderBy($this->sort, $this->direction)
-            ->paginate($this->amount);
+        $posts = [];
+
+        if ($this->is_ready) {
+            $posts = Post::where('title', 'like', '%' . $this->search . '%')
+                ->orWhere('content', 'like', '%' . $this->search . '%')
+                ->orderBy($this->sort, $this->direction)
+                ->paginate($this->amount);
+        }
 
         return view('livewire.show-posts', [
             'posts' => $posts,
@@ -129,5 +134,12 @@ class ShowPosts extends Component {
 
         $this->now = now();
         $this->emit('alert', 'El post se actualizó correctamente. 🙂');
+    }
+
+    /**
+     * Execute function when posts are load.
+     */
+    public function loadPost() {
+        $this->is_ready = true;
     }
 }

@@ -16,6 +16,9 @@ class CreatePost extends Component {
     public $image;
     public $now;
 
+    /**
+     * Validation rules.
+     */
     protected $rules = [
         'title'     => 'required|max:10',
         'content'   => 'required|min:20',

@@ -1,4 +1,4 @@
-<div>
+<div wire:init="loadPost">
     <div class="px-6 py-4 flex items-center">
         <div class="flex items-center">
             <span>Mostrar</span>
@@ -29,7 +29,7 @@
     </div>
 
     {{-- Table --}}
-    @if ($posts->count())
+    @if (count($posts))
         <table class="table-fixed min-w-full divide-y divide-red-700 border">
             <thead class="bg-gray-50">
                 <tr>
@@ -98,15 +98,15 @@
                 @endforeach
             </tbody>
         </table>
+
+        @if ($posts->hasPages())
+            <div class="px-6 py-3">
+                {{ $posts->links() }}
+            </div>
+        @endif
     @else
         <div class="px-6 py-4">
             <h2>No hay ninguna coincidencia con la busqueda solicitada 😢</h2>
-        </div>
-    @endif
-
-    @if ($posts->hasPages())
-        <div class="px-6 py-3">
-            {{ $posts->links() }}
         </div>
     @endif
 
