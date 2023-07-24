@@ -17,13 +17,38 @@ class ShowPosts extends Component {
     public $search;
     public $image;
     public $now;
-    
-    public $open = false;
-    public $sort = 'id';
-    public $direction = 'desc';
 
+    public $open        = false;
+    public $sort        = 'id';
+    public $direction   = 'desc';
+    public $amount      = 10;
+
+    /**
+     * Events to listen.
+     */
     protected $listeners = ['render'];
 
+    /**
+     * Show options into url.
+     */
+    protected $queryString  = [
+        'amount' => [
+            'except' => '10',
+        ],
+        'sort' => [
+            'except' => 'id',
+        ],
+        'direction' => [
+            'except' => 'desc',
+        ],
+        'search' => [
+            'except' => '',
+        ],
+    ];
+
+    /**
+     * Validation rules.
+     */
     protected $rules = [
         'post.title' => 'required',
         'post.content' => 'required',
@@ -38,13 +63,21 @@ class ShowPosts extends Component {
     }
 
     /**
+     * The function is executed every time 
+     * the value in the "search" property changes.
+     */
+    public function updatingSearch() {
+        $this->resetPage();
+    }
+
+    /**
      * Render component.
      */
     public function render() {
         $posts = Post::where('title', 'like', '%' . $this->search . '%')
             ->orWhere('content', 'like', '%' . $this->search . '%')
             ->orderBy($this->sort, $this->direction)
-            ->paginate(10);
+            ->paginate($this->amount);
 
         return view('livewire.show-posts', [
             'posts' => $posts,

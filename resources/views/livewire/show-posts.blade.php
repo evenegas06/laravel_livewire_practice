@@ -1,5 +1,23 @@
 <div>
-    <div class="px-6 py-4 flex">
+    <div class="px-6 py-4 flex items-center">
+        <div class="flex items-center">
+            <span>Mostrar</span>
+
+            <select 
+                name="show-elements" 
+                wire:model='amount'
+                id="show-elements"
+                class="mx-2 form-control rounded-md"
+            >
+                <option value="1">1</option>
+                <option value="10">10</option>
+                <option value="25">25</option>
+                <option value="50">50</option>
+            </select>
+
+            <span>entradas</span>
+        </div>
+
         <input
             type="text"
             class="flex-1 mx-4 rounded-md"
@@ -10,6 +28,7 @@
         <livewire:create-post />
     </div>
 
+    {{-- Table --}}
     @if ($posts->count())
         <table class="table-fixed min-w-full divide-y divide-red-700 border">
             <thead class="bg-gray-50">
