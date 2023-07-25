@@ -12,9 +12,10 @@ class EditPost extends Component {
     use WithFileUploads;
 
     public Post $post;
-    public $open = false;
     public $image;
     public $now;
+    
+    public $open = false;
 
     /**
      * Validation rules.

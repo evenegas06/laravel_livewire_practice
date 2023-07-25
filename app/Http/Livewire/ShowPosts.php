@@ -13,16 +13,15 @@ class ShowPosts extends Component {
     use WithPagination;
 
     public Post $post;
-    public $text;
-    public $search;
-    public $image;
-    public $now;
+    public $text, $search, $image, $now;
 
     public $open        = false;
+    public $is_ready    = false;
+
     public $sort        = 'id';
     public $direction   = 'desc';
+
     public $amount      = 10;
-    public $is_ready    = false;
 
     /**
      * Events to listen.
@@ -51,15 +50,15 @@ class ShowPosts extends Component {
      * Validation rules.
      */
     protected $rules = [
-        'post.title' => 'required',
-        'post.content' => 'required',
+        'post.title'    => 'required',
+        'post.content'  => 'required',
     ];
 
     /**
      * Like a constructor.
      */
     public function mount() {
-        $this->now = now();
+        $this->now  = now();
         $this->post = new Post();
     }
 

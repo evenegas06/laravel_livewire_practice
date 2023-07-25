@@ -17,7 +17,10 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('icons/all.css') }}">
+        
         @livewireStyles
+
+        @stack('css')
     </head>
     <body class="font-sans antialiased">
         <x-banner />
@@ -44,6 +47,7 @@
 
         @livewireScripts
 
+        @stack('js')
         <script>
             Livewire.on('alert', function (message) {
                 Swal.fire(

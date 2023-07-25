@@ -10,11 +10,12 @@ class CreatePost extends Component {
 
     use WithFileUploads;
 
-    public $open = false;
     public $title;
     public $content;
     public $image;
     public $now;
+    
+    public $open = false;
 
     /**
      * Validation rules.
