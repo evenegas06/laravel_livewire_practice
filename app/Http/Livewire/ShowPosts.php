@@ -26,7 +26,7 @@ class ShowPosts extends Component {
     /**
      * Events to listen.
      */
-    protected $listeners = ['render'];
+    protected $listeners = ['render', 'delete'];
 
     /**
      * Show options into url.
@@ -140,5 +140,12 @@ class ShowPosts extends Component {
      */
     public function loadPost() {
         $this->is_ready = true;
+    }
+
+    /**
+     * Delete post from database.
+     */
+    public function delete(Post $post) {
+        $post->delete();
     }
 }

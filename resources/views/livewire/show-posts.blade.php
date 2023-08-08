@@ -84,7 +84,7 @@
                             </div>
                         </td>
 
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 flex">
                             {{-- <livewire:edit-post :post="$post" wire:key="{{ $post->id }}"/> // Componente de anidamiento --}}
                             <button 
                                 class="font-bold text-white py-2 px-4 rounded cursor-pointer bg-green-600 hover:bg-green-500"
@@ -92,6 +92,13 @@
                             >
                         
                                 <i class="fas fa-edit"></i>
+                            </button>
+
+                            <button
+                                class="ml-2 font-bold text-white py-2 px-4 rounded cursor-pointer bg-red-600 hover:bg-red-500"
+                                wire:click="$emit('deletePost', {{ $item->id }})"
+                            >
+                                <i class="fas fa-trash"></i>
                             </button>
                         </td>
                     </tr>
@@ -211,4 +218,32 @@
             </div>
         </div>
     </div>
+
+    @push('js')
+        <script src="sweetalert2.all.min.js"></script>
+        <script>
+            Livewire.on('deletePost', (post_id) => {
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        Livewire.emitTo('show-posts', 'delete', post_id);
+
+                        Swal.fire(
+                        'Deleted!',
+                        'Your file has been deleted.',
+                        'success'
+                        );
+                    }
+                });
+            });
+
+        </script>
+    @endpush
 </div>
